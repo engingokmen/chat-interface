@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "./context";
+import { GlobalStyle } from "./component/GlobalStyle";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,6 +12,7 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <App />
+      <GlobalStyle />
     </AppProvider>
   </React.StrictMode>
 );
