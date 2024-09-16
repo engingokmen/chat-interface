@@ -1,14 +1,35 @@
 import styled from "styled-components";
+import { Direction } from "../../types";
 
-export const Message = ({ message }: { message: string }) => {
-  return <Li>{message}</Li>;
+export const Message = ({
+  value,
+  direction,
+}: {
+  value: string;
+  direction: Direction;
+}) => {
+  return (
+    <Li $direction={direction}>
+      <Div $direction={direction}>{value}</Div>
+    </Li>
+  );
 };
 
-const Li = styled.li`
+const Li = styled.li<{ $direction: Direction }>(
+  ({ $direction }) => `
   list-style-type: none;
-  background-color: var(--pale-yellow);
+  display: flex;
+  justify-content: flex-${$direction === Direction.Received ? "start" : "end"};
+`
+);
+
+const Div = styled.div<{ $direction: Direction }>(
+  ({ $direction }) => `
+  background-color: var(
+    ${$direction === Direction.Received ? "--pale-purple" : "--pale-yellow"}
+  );
   color: var(--blue);
-  padding: 1rem;
+  padding: 0.4rem 0.6rem;
   border-radius: 0.5rem;
-  display: inline-block;
-`;
+`
+);
