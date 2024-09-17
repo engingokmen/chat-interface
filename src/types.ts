@@ -1,7 +1,8 @@
 export interface IState {
   messages: IMessage[];
   input: string;
-  comboboxItems: Array<string>;
+  selectOptions: Array<string>;
+  autoSuggestions: Array<string>;
   combobox: Combobox;
 }
 
@@ -16,10 +17,10 @@ export interface IAction {
 }
 
 export enum Combobox {
+  null,
   Select,
   Autocomplete,
   Image,
-  null,
 }
 
 export enum Direction {

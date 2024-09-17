@@ -7,7 +7,35 @@ const initialValue = {
     { direction: Direction.Sent, value: "Sent" },
   ],
   input: "",
-  comboboxItems: [],
+  selectOptions: [
+    "Select option 1",
+    "Select option 2",
+    "Select option 3",
+    "Select option 4",
+    "Select option 5",
+  ],
+  autoSuggestions: [
+    "Hello!",
+    "How are you?",
+    "What's up?",
+    "Thank you!",
+    "You're welcome.",
+    "Please.",
+    "Sorry.",
+    "No problem.",
+    "Goodbye!",
+    "See you later.",
+    "Take care.",
+    "Have a great day!",
+    "Yes.",
+    "No.",
+    "Maybe.",
+    "I don't know.",
+    "Can you help me?",
+    "Sure!",
+    "Absolutely.",
+    "Let's do it!",
+  ],
   combobox: Combobox.null,
 };
 
@@ -34,8 +62,10 @@ const reducer = (state: IState, action: any) => {
       return { ...state, input: action.payload };
     case "RESET_INPUT":
       return { ...state, input: "" };
-    case "SET_COMBOBOX_ITEMS":
-      return { ...state, comboboxItems: action.payload };
+    case "SET_SELECT_OPTIONS_ITEMS":
+      return { ...state, selectOptions: action.payload };
+    case "SET_AUTO_COMPLETE_SUGGESTIONS_ITEMS":
+      return { ...state, autoSuggestions: action.payload };
     case "SET_COMBOBOX":
       return { ...state, combobox: action.payload };
     default: {
@@ -59,4 +89,9 @@ export const resetInput = () => ({
 export const addMessage = (value: string) => ({
   type: "ADD_MESSAGE",
   payload: { direction: Direction.Sent, value },
+});
+
+export const setCombobox = (value: Combobox) => ({
+  type: "SET_COMBOBOX",
+  payload: value,
 });
