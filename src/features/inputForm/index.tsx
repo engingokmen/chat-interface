@@ -4,6 +4,7 @@ import {
   useAppData,
   useAppDipatch,
 } from "../../context";
+import { ButtonInputForm } from "./components/ButtonInputForm";
 
 export const InputForm = () => {
   const { input } = useAppData();
@@ -27,7 +28,7 @@ export const InputForm = () => {
         onChange={handleChange}
         placeholder="Type a message..."
       />
-      <button type="submit">Send</button>
+      <ButtonInputForm />
     </form>
   );
 };
