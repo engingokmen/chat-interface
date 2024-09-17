@@ -46,3 +46,17 @@ const reducer = (state: IState, action: any) => {
 
 export const useAppData = () => useContext(AppContext);
 export const useAppDipatch = () => useContext(AppDispatchContext);
+
+export const changeInput = (value: string) => ({
+  type: "CHANGE_INPUT",
+  payload: value,
+});
+
+export const resetInput = () => ({
+  type: "RESET_INPUT",
+});
+
+export const addMessage = (value: string) => ({
+  type: "ADD_MESSAGE",
+  payload: { direction: Direction.Sent, value },
+});
