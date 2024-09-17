@@ -1,6 +1,7 @@
 import {
   addMessage,
   changeInput,
+  resetInput,
   useAppData,
   useAppDipatch,
 } from "../../context";
@@ -16,8 +17,8 @@ export const InputForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("input", input);
     dispatch(addMessage(input));
+    dispatch(resetInput());
   };
 
   return (
