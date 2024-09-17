@@ -1,11 +1,12 @@
 import React from "react";
 import { Messages } from "./features/messages";
+import { Laout } from "./component/Laout";
 
 function App() {
   return (
-    <div className="layout">
+    <Laout>
       <Messages />
-    </div>
+    </Laout>
   );
 }
 

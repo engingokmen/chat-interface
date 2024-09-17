@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     --pale-purple: #f4ecf7;
 }
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
 }
 `;
