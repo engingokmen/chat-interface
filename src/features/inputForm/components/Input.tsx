@@ -11,9 +11,11 @@ export const Input = () => {
   return (
     <input
       type="text"
+      list="autosuggestions"
       value={input}
       onChange={handleChange}
       placeholder="Type a message..."
+      autoComplete="off"
     />
   );
 };
