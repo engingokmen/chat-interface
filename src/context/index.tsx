@@ -69,10 +69,6 @@ const reducer = (state: IState, action: any) => {
       return { ...state, input: action.payload };
     case "RESET_INPUT":
       return { ...state, input: "" };
-    case "SET_SELECT_OPTIONS_ITEMS":
-      return { ...state, selectOptions: action.payload };
-    case "SET_AUTO_COMPLETE_SUGGESTIONS_ITEMS":
-      return { ...state, autoSuggestions: action.payload };
     case "SET_COMBOBOX":
       return { ...state, combobox: action.payload };
     case "SET_IMAGE":

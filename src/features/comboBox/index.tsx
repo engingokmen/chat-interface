@@ -1,4 +1,4 @@
-import { KeyboardEvent, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   changeInput,
   setCombobox,
