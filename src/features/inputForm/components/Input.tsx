@@ -10,6 +10,7 @@ export const Input = () => {
 
   return (
     <input
+      id="input-chat"
       type="text"
       list="autosuggestions"
       value={input}

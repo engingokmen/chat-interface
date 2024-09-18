@@ -24,33 +24,21 @@ export const ComboBox = () => {
     }
   }, [input]);
 
-  const handleSubmit = (value: string) => {
-    dispatch(setCombobox(Combobox.null));
-    dispatch(changeInput(value));
-  };
-
   const options = selectOptions.map((option) => (
     <option key={option}>{option}</option>
   ));
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLSelectElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleSubmit((e.target as HTMLSelectElement).value);
-    }
-  };
-
   const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    handleSubmit(e.target.value);
+    dispatch(setCombobox(Combobox.null));
+    dispatch(changeInput(e.target.value));
+    const inputElement = document.querySelector(
+      "#input-chat"
+    ) as HTMLInputElement;
+    inputElement?.focus();
   };
 
   return (
-    <Select
-      ref={ref}
-      $show={show}
-      onChange={handleOnChange}
-      onKeyDown={handleKeyDown}
-    >
+    <Select ref={ref} $show={show} onChange={handleOnChange}>
       {options}
     </Select>
   );
