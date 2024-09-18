@@ -4,6 +4,7 @@ export interface IState {
   selectOptions: Array<string>;
   autoSuggestions: Array<string>;
   combobox: Combobox;
+  image: string;
 }
 
 export interface IMessage {

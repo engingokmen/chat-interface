@@ -4,6 +4,7 @@ import { Laout } from "./component/Laout";
 import { InputForm } from "./features/inputForm";
 import { ComboBox } from "./features/comboBox";
 import { Autosuggestion } from "./features/autoSuggestion";
+import { ImageDisplay } from "./features/imageDisplay";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Messages />
       <ComboBox />
       <Autosuggestion />
+      <ImageDisplay />
       <InputForm />
     </Laout>
   );

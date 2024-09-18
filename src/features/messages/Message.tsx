@@ -8,9 +8,12 @@ export const Message = ({
   value: string;
   direction: Direction;
 }) => {
+  const imageCompitableValue =
+    value.split(":")[0] === "blob" ? <img src={value} alt={value} /> : value;
+
   return (
     <Li $direction={direction}>
-      <Div $direction={direction}>{value}</Div>
+      <Div $direction={direction}>{imageCompitableValue}</Div>
     </Li>
   );
 };

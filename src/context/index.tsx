@@ -37,6 +37,7 @@ const initialValue = {
     "Let's do it!",
   ],
   combobox: Combobox.null,
+  image: "",
 };
 
 const AppContext = createContext<IState>(initialValue);
@@ -57,7 +58,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 const reducer = (state: IState, action: any) => {
   switch (action.type) {
     case "ADD_MESSAGE":
-      return { ...state, messages: [...state.messages, action.payload] };
+      let payload;
+      if (action.payload.value.startsWith("/image")) {
+        payload = { ...action.payload, value: state.image };
+      } else {
+        payload = { ...action.payload };
+      }
+      return { ...state, messages: [...state.messages, payload] };
     case "CHANGE_INPUT":
       return { ...state, input: action.payload };
     case "RESET_INPUT":
@@ -68,6 +75,8 @@ const reducer = (state: IState, action: any) => {
       return { ...state, autoSuggestions: action.payload };
     case "SET_COMBOBOX":
       return { ...state, combobox: action.payload };
+    case "SET_IMAGE":
+      return { ...state, image: action.payload };
     default: {
       throw Error("Unknown action: " + action.type);
     }
@@ -93,5 +102,10 @@ export const addMessage = (value: string) => ({
 
 export const setCombobox = (value: Combobox) => ({
   type: "SET_COMBOBOX",
+  payload: value,
+});
+
+export const setImage = (value: string) => ({
+  type: "SET_IMAGE",
   payload: value,
 });
