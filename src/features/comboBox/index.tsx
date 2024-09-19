@@ -47,5 +47,7 @@ export const ComboBox = () => {
 const Select = styled.select<{ $show: boolean }>(
   ({ $show }) => `
     display: ${$show ? "block" : "none"};
+    color: var(--blue);
+    height: 2rem;
 `
 );

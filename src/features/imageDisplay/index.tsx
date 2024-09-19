@@ -30,5 +30,7 @@ export const ImageDisplay = () => {
     return <span>...loading</span>;
   }
 
-  return imageNumber ? <img src={image} alt={imageNumber} /> : null;
+  return imageNumber ? (
+    <img width={150} height={150} src={image} alt={imageNumber} />
+  ) : null;
 };

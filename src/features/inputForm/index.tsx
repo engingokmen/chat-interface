@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import {
   addMessage,
   resetInput,
@@ -18,9 +19,14 @@ export const InputForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Input />
       <ButtonInputForm />
-    </form>
+    </Form>
   );
 };
+
+const Form = styled.form`
+  display: flex;
+  gap: 1rem;
+`;

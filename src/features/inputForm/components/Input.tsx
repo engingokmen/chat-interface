@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { changeInput, useAppData, useAppDipatch } from "../../../context";
 
 export const Input = () => {
@@ -9,7 +10,7 @@ export const Input = () => {
   };
 
   return (
-    <input
+    <Inpu
       id="input-chat"
       type="text"
       list="autosuggestions"
@@ -20,3 +21,20 @@ export const Input = () => {
     />
   );
 };
+
+const Inpu = styled.input`
+  width: 100%;
+  // height: 100%;
+  outline: none;
+  resize: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--blue);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  &:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+`;

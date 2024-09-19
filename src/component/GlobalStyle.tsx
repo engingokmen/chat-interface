@@ -5,9 +5,14 @@ export const GlobalStyle = createGlobalStyle`
     --blue: #2874a6;
     --pale-yellow: #fef9e7;
     --pale-purple: #f4ecf7;
+    --cream: #f9fefa;
 }
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+#root {
+    height: 100dvh;
 }
 `;

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { useAppData } from "../../../context";
 
 export const ButtonInputForm = () => {
@@ -6,8 +7,23 @@ export const ButtonInputForm = () => {
   const isDisabled = input.trim() === "";
 
   return (
-    <button type="submit" disabled={isDisabled}>
+    <Button type="submit" disabled={isDisabled}>
       Send
-    </button>
+    </Button>
   );
 };
+
+const Button = styled.button`
+  background-color: var(--blue);
+  color: var(--pale-yellow);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: var(--pale-purple);
+    color: var(--blue);
+  }
+`;
