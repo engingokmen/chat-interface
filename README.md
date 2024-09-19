@@ -23,7 +23,7 @@ This is a simple chat application that can send and receive messages via its int
 
 ### Wireframe of the app
 
-[Go to wireframe](https://www.figma.com/board/Iimb4G6rguGKCdcuQFTNPL/chatApp?node-id=0-1&t=z3iLGbM8lzJMiiKg-1)
+<a href="https://www.figma.com/board/Iimb4G6rguGKCdcuQFTNPL/chatApp?node-id=0-1&t=z3iLGbM8lzJMiiKg-1" target="_blank">Go to wireframe</a>
 
 Core functionality
 
