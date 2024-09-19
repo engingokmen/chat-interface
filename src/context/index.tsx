@@ -1,11 +1,14 @@
-import React, { createContext, ReactNode, useContext, useReducer } from "react";
-import { Combobox, Direction, IState } from "../types";
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
+import { Combobox, Direction, IMessage, IState } from "../types";
 
 const initialValue = {
-  messages: [
-    { direction: Direction.Received, value: "Received" },
-    { direction: Direction.Sent, value: "Sent" },
-  ],
+  messages: [],
   input: "",
   selectOptions: [
     "Combobox message 1",
@@ -43,8 +46,28 @@ const initialValue = {
 const AppContext = createContext<IState>(initialValue);
 const AppDispatchContext = createContext<React.Dispatch<any>>(() => {});
 
-export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [value, dispatch] = useReducer(reducer, initialValue);
+export const AppProvider = ({
+  children,
+  messages,
+  onSentMessage,
+}: {
+  children: ReactNode;
+  messages: IMessage[];
+  onSentMessage: (message: IMessage) => void;
+}) => {
+  const initial = { ...initialValue, messages };
+  const [value, dispatch] = useReducer(reducer, initial);
+
+  useEffect(() => {
+    dispatch(setMessages(messages));
+  }, [messages]);
+
+  useEffect(() => {
+    if (value.messages.length > messages.length) {
+      const newMessage = value.messages[value.messages.length - 1];
+      onSentMessage(newMessage);
+    }
+  }, [value.messages]);
 
   return (
     <AppContext.Provider value={value}>
@@ -57,6 +80,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
 const reducer = (state: IState, action: any) => {
   switch (action.type) {
+    case "SET_MESSAGES":
+      return { ...state, messages: action.payload };
     case "ADD_MESSAGE":
       let payload;
       if (action.payload.value.startsWith("/image")) {
@@ -80,13 +105,14 @@ const reducer = (state: IState, action: any) => {
 export const useAppData = () => useContext(AppContext);
 export const useAppDipatch = () => useContext(AppDispatchContext);
 
-export const changeInput = (value: string) => ({
-  type: "CHANGE_INPUT",
+export const setMessages = (value: IMessage[]) => ({
+  type: "SET_MESSAGES",
   payload: value,
 });
 
-export const resetInput = () => ({
-  type: "RESET_INPUT",
+export const changeInput = (value: string) => ({
+  type: "CHANGE_INPUT",
+  payload: value,
 });
 
 export const addMessage = (value: string) => ({

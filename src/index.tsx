@@ -1,19 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import ChatApp from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { AppProvider } from "./context";
-import { GlobalStyle } from "./component/GlobalStyle";
+import { Direction, IMessage } from "./types";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+const messages = [
+  { direction: Direction.Received, value: "Received1" },
+  { direction: Direction.Sent, value: "Sent2" },
+  { direction: Direction.Received, value: "Received2" },
+  { direction: Direction.Sent, value: "Sent3" },
+  { direction: Direction.Received, value: "Received3" },
+];
+
+const onSentMessage = (message: IMessage) => {
+  console.log(message);
+};
+
 root.render(
   <React.StrictMode>
-    <AppProvider>
-      <App />
-      <GlobalStyle />
-    </AppProvider>
+    <ChatApp {...{ messages, onSentMessage }} />
   </React.StrictMode>
 );
 
