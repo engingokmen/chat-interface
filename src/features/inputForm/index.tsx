@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {
   addMessage,
-  resetInput,
+  changeInput,
   useAppData,
   useAppDipatch,
 } from "../../context";
@@ -15,7 +15,7 @@ export const InputForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(addMessage(input));
-    dispatch(resetInput());
+    dispatch(changeInput(""));
   };
 
   return (

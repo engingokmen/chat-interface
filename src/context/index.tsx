@@ -8,11 +8,11 @@ const initialValue = {
   ],
   input: "",
   selectOptions: [
-    "Select option 1",
-    "Select option 2",
-    "Select option 3",
-    "Select option 4",
-    "Select option 5",
+    "Combobox message 1",
+    "Combobox message 2",
+    "Combobox message 3",
+    "Combobox message 4",
+    "Combobox message 5",
   ],
   autoSuggestions: [
     "Hello!",
@@ -67,8 +67,6 @@ const reducer = (state: IState, action: any) => {
       return { ...state, messages: [...state.messages, payload] };
     case "CHANGE_INPUT":
       return { ...state, input: action.payload };
-    case "RESET_INPUT":
-      return { ...state, input: "" };
     case "SET_COMBOBOX":
       return { ...state, combobox: action.payload };
     case "SET_IMAGE":
