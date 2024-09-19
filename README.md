@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# React chat application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple chat application that can send and receive messages via its interface. It also provides some special features like image display, combo box selection, and auto-complete.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+[Go to demo](https://engingokmen.click/chat-app)
 
-### `npm start`
+## What this app does
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. gets messages and displays on the screen
+2. sends new message
+3. displays image
+4. displays a combo box with options
+5. auto-complete from a default list
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to run
 
-### `npm test`
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Run `npm start` to start the development server
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Wireframe of the app
 
-### `npm run build`
+[Go to wireframe](https://www.figma.com/board/Iimb4G6rguGKCdcuQFTNPL/chatApp?node-id=0-1&t=z3iLGbM8lzJMiiKg-1)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Core functionality
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Chat interface
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - sends and receieves messages
 
-### `npm run eject`
+- Messages inside a scrollable area
+- Text input area
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Special features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Image display
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  - "/image"
+  - placeholder eg: "/image3"
+  - image service https://picsum.photos/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Combo box selection
 
-## Learn More
+  - "/select"
+  - displays a combobox with at least 5 options
+  - selected option is sent as a message
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Auto-complete
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - A list of at least 20 common chat phrases or words
+  - As the user types, suggest completions from this list. One example is "hel"
+
+- Responsive layout
+  - mobile and desktop
+  - CSS flexbox for layout management
+
+Technologies
+
+- React with typescript which is suitable to create a reusable chat app interface for the client side.
+- State management could be handled by React context and reducer for this project.
+- Styled-components is used for styling which is one of the most popular CSS-in-JS libraries in the Github community. [Styled-components Github](https://github.com/styled-components/styled-components)
+  - It isolates component styles. So makes it easier to maintain and debug.
