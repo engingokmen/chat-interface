@@ -19,4 +19,5 @@ const Ul = styled.ul`
   flex-direction: column;
   gap: 1rem;
   height: 100%;
+  overflow-y: auto;
 `;
